@@ -1,0 +1,77 @@
+body{
+    margin:0px;
+}
+#container{
+    display:grid;
+    height: 100vh;
+    grid-template-rows: 2fr 22fr 2fr;
+    grid-template-areas: "t "
+                         "g "
+                         "b ";
+}
+
+#status-bar{
+    grid-area: b;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "f s l"
+}
+
+#timer{
+    grid-area: t;
+    display: grid;
+    background-color:#478978;
+    align-content: center;
+    justify-content: center;
+    font-family: 'Underdog', cursive;
+    font-size: 30px;
+}
+
+#game{
+    grid-area: g;
+    display: grid;
+    background-color: #84DCC6 ;
+}
+
+.status{
+    align-content: center;
+    justify-content: center;
+    font-family: 'Indie Flower', cursive;
+    font-size: 20px;
+    box-shadow: 5px 10px 8px #888888;
+}
+
+#frog-counter{
+    grid-area: f;
+    display: grid;
+    background-color: #D6EDFF;
+    
+}
+
+#start{
+    grid-area: s;
+    display: grid;
+    background-color: #ED4D6E;
+    /*ACD7EC after pressing*/
+    align-content: center;
+    justify-content: center;
+    font-family: 'Indie Flower', cursive;
+    margin: 3px;
+    font-size: 30px;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 5px 10px 8px #888888;
+}
+
+#level{
+    grid-area:l;
+    display: grid;
+    background-color: #8B95C9;
+}
+
+#go{
+    display:grid;
+    font-size: 200px;
+    align-self: center;
+    justify-self: center;
+}
