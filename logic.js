@@ -28,10 +28,15 @@ Frogies = function () {
     }
 
     const randomLocation = function (frog) {    // Adds left and top values to locate the frog randomly and relatively to the parent div
-        leftNum = Math.floor(Math.random() * 100)
+        leftNum = Math.floor(Math.random() * 85)
         frog.left = leftNum
-        topNum = Math.floor(Math.random() * 100)
-        frog.top = topNum
+        topNum = Math.floor(Math.random() * 82)
+        if(topNum < 10 | topNum > 81){
+            frog.top = 81
+        } else {
+            frog.top = topNum
+        }
+        
     }
 
     const frogSize = function (top, frog) {  // gets the top key value (not a percentage) and sets the font size
@@ -42,15 +47,7 @@ Frogies = function () {
         }
     }
 
-    const countdown = function (seconds) {
-
-        setInterval(() => {
-            if (seconds > 0) {
-                seconds -= 1
-            }
-        }, 1000)
-
-    }
+    
 
 
 
@@ -61,14 +58,12 @@ Frogies = function () {
         randomColor,
         randomLocation,
         frogSize,
-        countdown
     }
 }
 
 let frogies = Frogies()
 
 frogies.addFrog()
-
 
 
 
