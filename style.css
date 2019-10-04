@@ -4,10 +4,11 @@ body{
 #container{
     display:grid;
     height: 100vh;
+    width: 100vw;
     grid-template-rows: 2fr 22fr 2fr;
-    grid-template-areas: "t "
-                         "g "
-                         "b ";
+    grid-template-areas: "t"
+                         "g"
+                         "b";
 }
 
 #status-bar{
@@ -17,7 +18,7 @@ body{
     grid-template-areas: "f s l"
 }
 
-#timer{
+ #timer{
     grid-area: t;
     display: grid;
     background-color:#478978;
@@ -29,8 +30,9 @@ body{
 
 #game{
     grid-area: g;
+    background-color: #84DCC6;
     display: grid;
-    background-color: #84DCC6 ;
+    
 }
 
 .status{
@@ -70,8 +72,8 @@ body{
 }
 
 #go{
-    display:grid;
     font-size: 200px;
     align-self: center;
     justify-self: center;
-}
+    
+} 
