@@ -1,21 +1,33 @@
 Frogies = function () {
     let frogs = []
-
+    let frogCounter = 0
+    
     const getFrogs = function () {
+
         return frogs
+    }
+
+    const emptyFrogs = function(){
+        frogs = []
     }
 
     const addFrog = function () {  // Triggered when pressing the Start button
         let frog = {}
+        frogCounter += 1
         frog.color = randomColor()
         randomLocation(frog)
         frogSize(frog.top, frog)
         frogs.push(frog)
+        frog.id = "frog-"+ frogCounter
         return frog
     }
 
-    const removeFrog = function (frogIndex) {
-        frogs.splice(frogIndex, 1)
+    const removeFrog = function(frogID){ 
+        for(let frog in frogs){
+            if (frogs[frog].id == frogID){
+               frogs.splice(frog,1)
+            }
+        }
     }
 
     const randomColor = function () {  // Random color for each frog
@@ -47,6 +59,7 @@ Frogies = function () {
         }
     }
 
+
     
 
 
@@ -58,11 +71,13 @@ Frogies = function () {
         randomColor,
         randomLocation,
         frogSize,
+        emptyFrogs
     }
 }
 
 let frogies = Frogies()
 
+let frogCounter = 0
 frogies.addFrog()
 
 
