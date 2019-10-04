@@ -17,25 +17,25 @@ Renderer = function () {
             
         }
     }
-    const removeGo = function () {
+    const removeGo = function () { // Removes the go when the user hit the start button
         $("#go").remove()
     }
 
-
+ 
     const countdown = function (timerId,gameId,seconds){ // Shows the use the amount of time left
-        setInterval(() => {
-        if (seconds > 0) {
-            seconds -=1
-            console.log(seconds)
-            timerDiv(timerId,seconds)
-            
-        } else {
-            gameOver(timerId,"game")
-            
-        }
-    }, 1000)
-
+        let id = setInterval(timer,1000)
+        function timer(){
+            if (seconds == 0) {
+                clearInterval(id);
+                gameOver(timerId,gameId)      
+            } else {
+                seconds -=1
+                console.log(seconds)
+                timerDiv(timerId,seconds)
+                
     
+            }
+        }            
     
 }
 
@@ -44,7 +44,8 @@ const gameOver = function(timerId,gameId){
     if(timeIsOff == "You have 0 seconds"){
         $(`#${gameId}`).text("You've lost, time's off")
         document.getElementById(gameId).style.alignContent="center"
-        document.getElementById(gameId).style.fontSize = "200px"
+        document.getElementById(gameId).style.justifyContent = "center"
+        document.getElementById(gameId).style.fontSize = "50px"
     }
 }
 
