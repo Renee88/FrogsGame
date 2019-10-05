@@ -52,13 +52,24 @@ const Renderer = function () {
         timeIsOff = $(`#${timerId}`).text()
         if (seconds == 0 && timeIsOff == "You have 0 seconds") {
             $(`#${gameId}`).text("You've lost, time's off")
+            $(`#${gameId}`).append("<button>Start a new game</button>")
+            $(`#${gameId}`).on("click","button",function(){
+                location.reload()
+            })
+            document.getElementById(gameId).style.fontFamily = "'Underdog', cursive"
             document.getElementById(gameId).style.alignContent = "center"
             document.getElementById(gameId).style.justifyContent = "center"
             document.getElementById(gameId).style.fontSize = "50px"
-            return true
+            
+            
+            
         }
     }
 
+    const levelNo = function(levelId){
+        level = frogies.getLevel()
+        $(`#${levelId}`).text(`level ${level}`)
+    }
 
     const timerDiv = function (timerId,seconds) {  // Generates a timer Div - timer id input is without the #
         $(`#${timerId}`).text(`You have ${seconds} seconds`)
@@ -80,7 +91,8 @@ const Renderer = function () {
         displayFrogs,
         gameOver,
         timerDiv,
-        renderFrogs
+        renderFrogs,
+        levelNo
 
     }
 

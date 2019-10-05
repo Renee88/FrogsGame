@@ -1,19 +1,15 @@
 Frogies = function () {
     let frogs = []
-    let frogsNum = frogs.length
     let clicks = 0
+    let frogsIdCounter = 0
 
-
-    const getClicks = function () {
-        return clicks
-    }
 
     const getFrogs = function () {
         return frogs
     }
 
     const getFrogsNum = function () {
-        return frogsNum
+        return clicks
     }
 
     const getSeconds = function (frogsNum) {
@@ -28,6 +24,11 @@ Frogies = function () {
 
     }
 
+    const getLevel = function(){
+        level = clicks + 1
+        return level
+    }
+
     const addFrog = function () {  // Triggered when pressing the Start button
 
         for (let i = 0; i < clicks + 1; i++) {
@@ -36,7 +37,8 @@ Frogies = function () {
             randomLocation(frog)
             frogSize(frog.top, frog)
             frogs.push(frog)
-            frog.id = "frog-" + frogsNum
+            frogsIdCounter +=1
+            frog.id = "frog-" + frogsIdCounter
         }
 
     }
@@ -102,7 +104,8 @@ Frogies = function () {
         randomColor,
         randomLocation,
         frogSize,
-        countdown
+        countdown,
+        getLevel
     }
 
 
@@ -114,4 +117,3 @@ Frogies = function () {
 }
 
 const frogies = Frogies()
-frogies.countdown(5)
