@@ -1,26 +1,26 @@
-Renderer = function () {
-    
-    const getSize = function(frog) {
+const Renderer = function () {
+
+    const getSize = function (frog) {
         return frog.size
-    } 
-    const getColor =function(frog){
+    }
+    const getColor = function (frog) {
         return frog.color
-    } 
-        
-    const setPosition = function(left,top,elementId){
-       document.getElementById(elementId).style.left = left 
-       document.getElementById(elementId).style.top = top
+    }
+
+    const setPosition = function (left, top, elementId) {
+        document.getElementById(elementId).style.left = left
+        document.getElementById(elementId).style.top = top
 
     }
 
-    const setColor = function(elementId,elementColor){
+    const setColor = function (elementId, elementColor) {
         $(`#${elementId}`).css("color", elementColor)
     }
 
-    const setSize = function(elementId,elementSize){
+    const setSize = function (elementId, elementSize) {
         $(`#${elementId}`).css("fontSize", elementSize)
     }
-    
+
     // displays the frogs one by one according to the array in logic
     displayFrogs = function (frogs) {
         let idNum = 0
@@ -30,12 +30,12 @@ Renderer = function () {
             let top = frog.top + "vh"
             let left = frog.left + "vw"
             let frogId = frog.id
-            idNum+=1
+            idNum += 1
             let divDataId = `box-${idNum} `
             $("#game").append(`<div data-id = ${divDataId}><i class="fas fa-frog" id =${frogId}></i></div>`)
-            setColor(frogId,frogColor)
-            setSize(frogId,frogSize)
-            setPosition(left,top,frogId)   
+            setColor(frogId, frogColor)
+            setSize(frogId, frogSize)
+            setPosition(left, top, frogId)
         }
     }
 
@@ -44,62 +44,47 @@ Renderer = function () {
         $("#go").remove()
     }
 
-    //Timer function 
-    const countdown = function (timerId,gameId,seconds){ // Shows the use the amount of time left
-        let id = setInterval(timer,1000)
-        function timer(){
-            if (seconds == 0) {
-                clearInterval(id);
-                gameOver(timerId,gameId)      
-            } else {
-                seconds -=1
-                timerDiv(timerId,seconds)
-                
-    
-            }
-        }            
-    
-}
-
-const gameOver = function(timerId,gameId){
-    timeIsOff = $(`#${timerId}`).text()
-    if(timeIsOff == "You have 0 seconds"){
-        $(`#${gameId}`).text("You've lost, time's off")
-        document.getElementById(gameId).style.alignContent="center"
-        document.getElementById(gameId).style.justifyContent = "center"
-        document.getElementById(gameId).style.fontSize = "50px"
-    }
-}
 
 
 
-    const timerDiv = function (timerId, seconds) {  // Generates a timer Div
-        $(`#${timerId}`).text( `You have ${seconds} seconds`)
+
+    const gameOver = function (timerId,gameId, seconds) {   // If the user had lost displays a message and return the value true
+        timeIsOff = $(`#${timerId}`).text()
+        if (seconds == 0 && timeIsOff == "You have 0 seconds") {
+            $(`#${gameId}`).text("You've lost, time's off")
+            document.getElementById(gameId).style.alignContent = "center"
+            document.getElementById(gameId).style.justifyContent = "center"
+            document.getElementById(gameId).style.fontSize = "50px"
+            return true
+        }
     }
 
 
-    const renderFrogs = function(frogs){
+    const timerDiv = function (timerId,seconds) {  // Generates a timer Div - timer id input is without the #
+        $(`#${timerId}`).text(`You have ${seconds} seconds`)
+    }
+    
+    const renderFrogs = function (frogs) {
         $("#game").empty()
         displayFrogs(frogs)
-
     }
+        
+
+    
+    
+    
+
+
     return {
         removeGo,
         displayFrogs,
-        countdown,
         gameOver,
+        timerDiv,
         renderFrogs
+
     }
 
 
 }
-
-
-// let frogs = frogies.getFrogs()
-// console.log(frogs)
-// render.removeGo()
-// render.addFrogsDiv(frogs)
-// render.countdown("timer", "game" , 5)
-// render.gameOver("timer","game")
 
 
