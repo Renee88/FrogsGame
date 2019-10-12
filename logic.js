@@ -1,53 +1,54 @@
 Frogies = function () {
     let frogs = []
-    let clicks = 0
-    let frogsIdCounter = 0
+    let level = 0
 
 
     const getFrogs = function () {
         return frogs
     }
 
-    const getFrogsNum = function () {
-        return clicks
-    }
 
-    const getSeconds = function (frogsNum) {
-        if (frogsNum != 0) {
-            let seconds = 2 * (frogsNum - 1) + 5
-            return seconds
-        } else if (frogsNum == 0) {
+    const getSeconds = function (level) {
+        if (level == 1) {
             seconds = 5
+            return seconds
+        } else if (level > 1) {
+            let seconds = 5 + level
             return seconds
         }
 
 
     }
 
-    const getLevel = function(){
-        level = clicks + 1
+
+    const getLevel = function () {
         return level
     }
 
-    const addFrog = function () {  // Triggered when pressing the Start button
-
-        for (let i = 0; i < clicks + 1; i++) {
-            let frog = {}
-            frog.color = randomColor()
-            randomLocation(frog)
-            frogSize(frog.top, frog)
-            frogs.push(frog)
-            frogsIdCounter +=1
-            frog.id = "frog-" + frogsIdCounter
-        }
+    const createFrog = function (num) {
+        frog = {}
+        frog.color = randomColor()
+        randomLocation(frog)
+        frogSize(frog.top, frog)
+        frog.id = "frog-" + num
+        return frog
 
     }
+
+    const addFrog = function () {  // Triggered when pressing the Start button
+            level += 1
+            frogs.length = level
+            for(let i = 0; i <level ; i++){
+                frogs[i] = createFrog(i)
+            }       
+  
+    }
+
 
     const removeFrog = function (frogID) {
         for (let frog in frogs) {
             if (frogs[frog].id == frogID) {
                 frogs.splice(frog, 1)
-                clicks += 1
             }
         }
     }
@@ -86,18 +87,17 @@ Frogies = function () {
         function timer() {
             if (seconds == 0) {
                 clearInterval(interval)
-                render.gameOver("timer","game",seconds)
-                return false
-            } else {
-                seconds -= 1
                 render.timerDiv("timer", seconds)
+                render.gameOver("timer", "game", seconds)
+            } else {
+                render.timerDiv("timer", seconds)
+                seconds -= 1
             }
         }
     }
 
     return {
         getFrogs,
-        getFrogsNum,
         getSeconds,
         addFrog,
         removeFrog,
@@ -108,12 +108,10 @@ Frogies = function () {
         getLevel
     }
 
-
-
-
-
-
-
 }
+
+
+
+
 
 const frogies = Frogies()

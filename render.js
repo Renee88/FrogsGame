@@ -66,9 +66,9 @@ const Renderer = function () {
         }
     }
 
-    const levelNo = function(levelId){
+    const levelNo = function(){
         level = frogies.getLevel()
-        $(`#${levelId}`).text(`level ${level}`)
+        $("#level").text(`level ${level}`)
     }
 
     const timerDiv = function (timerId,seconds) {  // Generates a timer Div - timer id input is without the #
