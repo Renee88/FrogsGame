@@ -78,6 +78,7 @@ const Renderer = function () {
     const renderFrogs = function (frogs) {
         $("#game").empty()
         displayFrogs(frogs)
+        frogies.countdown(frogies.getSeconds())
     }
         
 

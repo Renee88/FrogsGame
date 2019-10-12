@@ -1,6 +1,6 @@
 Frogies = function () {
     let frogs = []
-    let level = 0
+    let level = 1
 
 
     const getFrogs = function () {
@@ -36,7 +36,6 @@ Frogies = function () {
     }
 
     const addFrog = function () {  // Triggered when pressing the Start button
-            level += 1
             frogs.length = level
             for(let i = 0; i <level ; i++){
                 frogs[i] = createFrog(i)
@@ -81,7 +80,16 @@ Frogies = function () {
             frog.size = 16
         }
     }
-
+    
+    const breakTimer = function(interval){
+        if(frogs.length === 0){
+            clearInterval(interval)
+            level +=1
+            addFrog()
+            return getSeconds(level) 
+        }
+    }
+    
     const countdown = function (seconds) {
         let interval = setInterval(timer, 1000);
         function timer() {
@@ -92,9 +100,13 @@ Frogies = function () {
             } else {
                 render.timerDiv("timer", seconds)
                 seconds -= 1
+                seconds = breakTimer(interval)
+                
             }
         }
     }
+
+  
 
     return {
         getFrogs,
