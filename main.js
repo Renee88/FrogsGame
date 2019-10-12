@@ -8,7 +8,6 @@ $("#game").on("click", "i", function () {
 })
 
 $("#start").on("click", function () {
-    render.removeGo()
     frogies.addFrog()
     render.levelNo()
     render.renderFrogs(frogies.getFrogs())
@@ -16,6 +15,7 @@ $("#start").on("click", function () {
     frogies.countdown(seconds)
  }
 )
+
 
 
 

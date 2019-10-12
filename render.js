@@ -22,7 +22,7 @@ const Renderer = function () {
     }
 
     // displays the frogs one by one according to the array in logic
-    displayFrogs = function (frogs) {
+    const displayFrogs = function (frogs) {
         let idNum = 0
         for (let frog of frogs) {
             const frogSize = getSize(frog)
@@ -77,8 +77,8 @@ const Renderer = function () {
     
     const renderFrogs = function (frogs) {
         $("#game").empty()
+        levelNo()
         displayFrogs(frogs)
-        frogies.countdown(frogies.getSeconds())
     }
         
 
