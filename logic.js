@@ -8,12 +8,12 @@ Frogies = function () {
     }
 
 
-    const getSeconds = function (level) {
+    const getSeconds = function () {
         if (level == 1) {
             seconds = 5
             return seconds
         } else if (level > 1) {
-            let seconds = 5 + level
+            let seconds = 5 + level-1
             return seconds
         }
 
@@ -85,14 +85,14 @@ Frogies = function () {
     const countdown = function (seconds) {
         let interval = setInterval(timer, 1000);
         function timer() {
-            if (seconds == 0) {
+            if (seconds === 0) {
                 clearInterval(interval)
                 render.timerDiv("timer", seconds)
                 render.gameOver("timer", "game", seconds)
             } else if (frogs.length === 0) {
-                clearInterval(interval)
                 level += 1
-                addFrog()
+                clearInterval(interval)
+                render.timerDiv("timer", seconds)
             } else {
                 render.timerDiv("timer", seconds)
                 seconds -= 1
@@ -101,6 +101,10 @@ Frogies = function () {
 
 
         }
+    }
+
+    const restartCountdown = function (seconds){
+        countdown(seconds)
     }
 
 
@@ -115,7 +119,8 @@ Frogies = function () {
         randomLocation,
         frogSize,
         countdown,
-        getLevel
+        getLevel,
+        restartCountdown
     }
 
 }

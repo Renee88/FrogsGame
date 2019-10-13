@@ -1,44 +1,18 @@
 const render = Renderer()
 
+$("#start").on("click", function () {
+    frogies.addFrog()
+    seconds = frogies.getSeconds()
+    frogies.countdown(seconds)
+    render.renderFrogs(frogies.getFrogs())
+    render.levelNo()
+
+})
+
 $("#game").on("click", "i", function () {
     const frogId = $(this).attr("id")
     frogies.removeFrog(frogId)
-    let frogs = frogies.getFrogs()
-    render.renderFrogs(frogs)
-})
-
-$("#start").on("click", function () {
-    frogies.addFrog()
+    render.renderFrogs(frogies.getFrogs())
     render.levelNo()
     render.renderFrogs(frogies.getFrogs())
-    let seconds = frogies.getSeconds(level)
-    frogies.countdown(seconds)
- }
-)
-
-
-
-
-
-
-
-
-    
-        
- 
-    
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
+})
