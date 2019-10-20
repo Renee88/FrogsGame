@@ -30,7 +30,7 @@ const Renderer = function () {
             let left = frog.left + "vw"
             let frogId = frog.id
             idNum += 1
-            let divDataId = `box-${idNum} `
+            let divDataId = `box-${idNum}`
             $("#game").append(`<div data-id = ${divDataId}><i class="fas fa-frog" id =${frogId}></i></div>`)
             setColor(frogId, frogColor)
             setSize(frogId, frogSize)
