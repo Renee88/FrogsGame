@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Catch me if you can</title>
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Underdog&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/0c25c19dc4.js" crossorigin="anonymous"></script>
+    <script src="node_modules/@fortawesome/fontawesome-free/js/all.js"></script>
     <link rel="stylesheet" href="style.css" />
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     
@@ -16,7 +16,12 @@
     <div id=container>
         <div id="timer">Ready?</div>
         <div id="game">
-            <div id="go">Go!</div>
+            <div id="go">
+                <div id="welcome-container">
+                        <div id = "welcome">Welcome to the best game ever</div>
+                        <div id ="frog-container"><i id=start-frog class="fas fa-frog"></i></div>
+                </div>    
+            </div>
         </div>
         <div id="status-bar">
                 <div id="frog-counter" class = "status">Catch the frogs!</div>

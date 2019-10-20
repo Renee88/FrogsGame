@@ -72,14 +72,42 @@ body{
 }
 
 #go{
-    font-size: 200px;
+    display: grid;
+    align-content: center;
+}
+
+#welcome-container{
     align-self: center;
     justify-self: center;
     width: 100vw;
     display: grid;
+    grid-template-rows: 1fr 4fr;
     justify-content: center;
+    height: 500px;
+    width: 400px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #009432;
+    
 } 
 
 i{
     position:absolute;
+}
+
+#welcome{
+    font-size: 25px;
+    align-self: center;
+}
+
+#frog-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#start-frog{
+    font-size: 100px;
+    color: #2ed573;
+    
 }
