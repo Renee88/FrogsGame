@@ -1,7 +1,7 @@
 const render = Renderer()
 
 $("#start").on("click", function () {
-    frogies.addFrog()
+    frogies.startGame()
     frogies.countdown()
     render.renderFrogs(frogies.getFrogs())
     render.levelNo()

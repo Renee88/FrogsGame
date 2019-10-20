@@ -45,8 +45,10 @@ const Renderer = function () {
     }
 
 
-
-
+    const levelNo = function(){
+        level = frogies.getLevel()
+        $("#level").text(`level ${level}`)
+    }
 
     const gameOver = function (timerId,gameId, seconds) {   // If the user had lost displays a message and return the value true
         timeIsOff = $(`#${timerId}`).text()
@@ -59,6 +61,7 @@ const Renderer = function () {
             document.getElementById(gameId).style.fontFamily = "'Underdog', cursive"
             document.getElementById(gameId).style.alignContent = "center"
             document.getElementById(gameId).style.justifyContent = "center"
+            $("button").css({display: "grid",justifySelf: "center", width: "fit-content"})
             document.getElementById(gameId).style.fontSize = "50px"
             
             
@@ -66,14 +69,11 @@ const Renderer = function () {
         }
     }
 
-    const levelNo = function(){
-        level = frogies.getLevel()
-        $("#level").text(`level ${level}`)
-    }
-
     const timerDiv = function (timerId,seconds) {  // Generates a timer Div - timer id input is without the #
         $(`#${timerId}`).text(`You have ${seconds} seconds`)
     }
+
+
     
     const renderFrogs = function (frogs) {
         $("#game").empty()
@@ -90,10 +90,10 @@ const Renderer = function () {
     return {
         removeGo,
         displayFrogs,
-        gameOver,
-        timerDiv,
         renderFrogs,
-        levelNo
+        levelNo,
+        gameOver,
+        timerDiv
 
     }
 
