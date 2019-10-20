@@ -21,7 +21,6 @@ const Renderer = function () {
         $(`#${elementId}`).css("fontSize", elementSize)
     }
 
-    // displays the frogs one by one according to the array in logic
     const displayFrogs = function (frogs) {
         let idNum = 0
         for (let frog of frogs) {
@@ -39,12 +38,7 @@ const Renderer = function () {
         }
     }
 
-    const setGrids = function(){
-        $("#game").css({display: "grid",gridTemplateRows: "15px 30px 60px 90px 120px"})
-    }
-
-    //Removes the Go! from the screen when the user starts playing
-    const removeGo = function () { // Removes the go when the user hit the start button
+    const removeGo = function () { 
         $("#go").remove()
     }
 
@@ -54,7 +48,7 @@ const Renderer = function () {
         $("#level").text(`level ${level}`)
     }
 
-    const gameOver = function (timerId,gameId, seconds) {   // If the user had lost displays a message and return the value true
+    const gameOver = function (timerId,gameId, seconds) {  
         timeIsOff = $(`#${timerId}`).text()
         if (seconds == 0 && timeIsOff == "You have 0 seconds") {
             $("#game").empty()
@@ -74,7 +68,7 @@ const Renderer = function () {
         }
     }
 
-    const timerDiv = function (timerId,seconds) {  // Generates a timer Div - timer id input is without the #
+    const timerDiv = function (timerId,seconds) {  
         $(`#${timerId}`).text(`You have ${seconds} seconds`)
     }
 

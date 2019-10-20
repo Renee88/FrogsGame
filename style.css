@@ -75,7 +75,9 @@ body{
     font-size: 200px;
     align-self: center;
     justify-self: center;
-    
+    width: 100vw;
+    display: grid;
+    justify-content: center;
 } 
 
 i{

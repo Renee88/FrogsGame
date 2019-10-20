@@ -65,7 +65,7 @@ Frogies = function () {
         leftNum = Math.floor(Math.random() * 85)
         frog.left = leftNum
         topNum = Math.floor(Math.random() * 82)
-        if (topNum < 10 | topNum > 81) {
+        if (topNum < 10 || topNum > 81) {
             frog.top = 81
         } else {
             frog.top = topNum
