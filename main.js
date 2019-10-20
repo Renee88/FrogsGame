@@ -1,4 +1,5 @@
 const render = Renderer()
+render.fadeInWelcome()
 
 $("#start").on("click", function () {
     frogies.startGame()

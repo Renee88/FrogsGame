@@ -81,7 +81,9 @@ const Renderer = function () {
     }
         
 
-    
+    const fadeInWelcome = function(){
+        $("#game").fadeIn(2000)
+    }
     
     
 
@@ -92,7 +94,8 @@ const Renderer = function () {
         renderFrogs,
         levelNo,
         gameOver,
-        timerDiv
+        timerDiv,
+        fadeInWelcome
 
     }
 
