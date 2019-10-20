@@ -9,13 +9,11 @@ Frogies = function () {
     }
 
 
-    const getSeconds = function () {
+    const setSeconds = function () {
         if (level == 1) {
             seconds = 5
-            console.log(seconds)
         } else if (level > 1) {
             seconds = 5 + level-1
-            console.log(seconds)
         }
 
 
@@ -25,6 +23,7 @@ Frogies = function () {
     const getLevel = function () {
         return level
     }
+
 
     const createFrog = function (num) {
         frog = {}
@@ -44,11 +43,21 @@ Frogies = function () {
 
     }
 
+    const startGame = function(){
+        level += 1
+        countdown()
+        setSeconds()
+        addFrog()
+    }
 
     const removeFrog = function (frogID) {
         for (let frog in frogs) {
+            
             if (frogs[frog].id == frogID) {
                 frogs.splice(frog, 1)
+                if (frogs.length === 0){
+                    startGame()
+                }
             }
         }
     }
@@ -91,7 +100,6 @@ Frogies = function () {
                 render.timerDiv("timer", seconds)
                 render.gameOver("timer", "game", seconds)
             } else if (frogs.length === 0) {
-                level += 1
                 clearInterval(interval)
                 render.timerDiv("timer", seconds)
             } else {
@@ -113,7 +121,7 @@ Frogies = function () {
 
     return {
         getFrogs,
-        getSeconds,
+        setSeconds,
         addFrog,
         removeFrog,
         randomColor,
