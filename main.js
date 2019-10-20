@@ -3,7 +3,7 @@ const render = Renderer()
 $("#start").on("click", function () {
     frogies.addFrog()
     seconds = frogies.getSeconds()
-    frogies.countdown(seconds)
+    frogies.countdown()
     render.renderFrogs(frogies.getFrogs())
     render.levelNo()
 

@@ -1,6 +1,7 @@
 Frogies = function () {
     let frogs = []
     let level = 1
+    let seconds
 
 
     const getFrogs = function () {
@@ -11,10 +12,10 @@ Frogies = function () {
     const getSeconds = function () {
         if (level == 1) {
             seconds = 5
-            return seconds
+            console.log(seconds)
         } else if (level > 1) {
-            let seconds = 5 + level-1
-            return seconds
+            seconds = 5 + level-1
+            console.log(seconds)
         }
 
 
@@ -82,7 +83,7 @@ Frogies = function () {
     }
 
 
-    const countdown = function (seconds) {
+    const countdown = function () {
         let interval = setInterval(timer, 1000);
         function timer() {
             if (seconds === 0) {
