@@ -96,6 +96,7 @@ i{
 #welcome{
     font-size: 25px;
     align-self: center;
+    font-family: 'Underdog', cursive;
 }
 
 #frog-container{
@@ -107,5 +108,5 @@ i{
 #start-frog{
     font-size: 100px;
     color: #2ed573;
-    
+    animation: ;   
 }

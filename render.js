@@ -81,8 +81,11 @@ const Renderer = function () {
     }
         
 
-    const fadeInWelcome = function(){
-        $("#game").fadeIn(2000)
+    const fadeOutWelcome = function(){
+        setTimeout(function(){
+            $("#welcome-container").fadeOut(1000)
+        },1000)
+        
     }
     
     
@@ -95,7 +98,7 @@ const Renderer = function () {
         levelNo,
         gameOver,
         timerDiv,
-        fadeInWelcome
+        fadeOutWelcome
 
     }
 
