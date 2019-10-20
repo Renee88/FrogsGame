@@ -23,17 +23,6 @@ Frogies = function () {
         return level
     }
 
-
-    const createFrog = function (num) {
-        frog = {}
-        frog.color = randomColor()
-        randomLocation(frog)
-        frogSize(frog.top, frog)
-        frog.id = "frog-" + num
-        return frog
-
-    }
-
     const addFrog = function () {  // Triggered when pressing the Start button
         frogs.length = level
         for (let i = 0; i < level; i++) {
@@ -42,6 +31,12 @@ Frogies = function () {
 
     }
 
+    const startGame = function () {
+        level += 1
+        setSeconds()
+        addFrog()
+
+    }
 
     const removeFrog = function (frogID) {
         for (let frog in frogs) {
@@ -55,6 +50,7 @@ Frogies = function () {
             startGame()
         }
     }
+
 
     const randomColor = function () {  // Random color for each frog
         const letters = '0123456789ABCDEF';
@@ -78,14 +74,22 @@ Frogies = function () {
     }
 
     const frogSize = function (top, frog) {  // gets the top key value (not a percentage) and sets the font size
-        let size = 100 - top
+        let size = top
         frog.size = size
         if (size < 16) {
             frog.size = 16
         }
     }
 
-   
+    const createFrog = function (num) {
+        frog = {}
+        frog.color = randomColor()
+        randomLocation(frog)
+        frogSize(frog.top, frog)
+        frog.id = "frog-" + num
+        return frog
+
+    }
 
     const countdown = function () {
         let interval = setInterval(timer,1000)
@@ -102,12 +106,7 @@ Frogies = function () {
         }
     }
 
-    const startGame = function () {
-        level += 1
-        setSeconds()
-        addFrog()
-
-    }
+  
 
 
 
@@ -115,14 +114,15 @@ Frogies = function () {
     return {
         getFrogs,
         setSeconds,
+        getLevel,
         addFrog,
         startGame,
         removeFrog,
         randomColor,
         randomLocation,
         frogSize,
-        countdown,
-        getLevel
+        createFrog,
+        countdown
     }
 
 

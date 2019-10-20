@@ -39,6 +39,10 @@ const Renderer = function () {
         }
     }
 
+    const setGrids = function(){
+        $("#game").css({display: "grid",gridTemplateRows: "15px 30px 60px 90px 120px"})
+    }
+
     //Removes the Go! from the screen when the user starts playing
     const removeGo = function () { // Removes the go when the user hit the start button
         $("#go").remove()
@@ -53,7 +57,8 @@ const Renderer = function () {
     const gameOver = function (timerId,gameId, seconds) {   // If the user had lost displays a message and return the value true
         timeIsOff = $(`#${timerId}`).text()
         if (seconds == 0 && timeIsOff == "You have 0 seconds") {
-            $(`#${gameId}`).text("You've lost, time's off")
+            $("#game").empty()
+            $(`#${gameId}`).append("<div class = lost> You've lost, time's off </div>")
             $(`#${gameId}`).append("<button>Start a new game</button>")
             $(`#${gameId}`).on("click","button",function(){
                 location.reload()
