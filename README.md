@@ -17,4 +17,8 @@ All you have to do now is to remove all the frogs by clicking them, before the t
 
 ENJOY :)
 
+### future features
+- The player will get a score according to the number of frogs he succeeded to catch.
+- A record table saved on MySQL DB.
+
 
