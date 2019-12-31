@@ -10,7 +10,6 @@ const Renderer = function () {
     const setPosition = function (left, top, elementId) {
         document.getElementById(elementId).style.left = left
         document.getElementById(elementId).style.top = top
-
     }
 
     const setColor = function (elementId, elementColor) {
@@ -88,7 +87,11 @@ const Renderer = function () {
         
     }
     
-    
+    const unableStartButton = function(){
+        $("#start").empty()
+        $("#start").append('Go get them!')
+        $("#start").attr("class","game-on")
+    }
 
 
     return {
@@ -98,7 +101,8 @@ const Renderer = function () {
         levelNo,
         gameOver,
         timerDiv,
-        fadeOutWelcome
+        fadeOutWelcome,
+        unableStartButton
 
     }
 

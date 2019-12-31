@@ -16,7 +16,6 @@ Frogies = function () {
             seconds = 5 + level - 1
         }
 
-
     }
 
     const getLevel = function () {
@@ -35,7 +34,6 @@ Frogies = function () {
         level += 1
         setSeconds()
         addFrog()
-
     }
 
     const removeFrog = function (frogID) {
@@ -88,7 +86,6 @@ Frogies = function () {
         frogSize(frog.top, frog)
         frog.id = "frog-" + num
         return frog
-
     }
 
     const countdown = function () {

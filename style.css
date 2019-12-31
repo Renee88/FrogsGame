@@ -52,7 +52,7 @@ body{
     
 }
 
-#start{
+.start{
     grid-area: s;
     display: grid;
     background-color: #ED4D6E;
@@ -63,6 +63,21 @@ body{
     margin: 3px;
     font-size: 30px;
     color: white;
+    border-radius: 5px;
+    box-shadow: 5px 10px 8px #888888;
+}
+
+.game-on{
+    grid-area: s;
+    display: grid;
+    background-color: yellow;
+    /*ACD7EC after pressing*/
+    align-content: center;
+    justify-content: center;
+    font-family: 'Indie Flower', cursive;
+    margin: 3px;
+    font-size: 30px;
+    color: #888888;
     border-radius: 5px;
     box-shadow: 5px 10px 8px #888888;
 }
